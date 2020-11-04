@@ -1,8 +1,9 @@
 import React from "react";
 import "./app.css";
+import EmployeeContainer from "./components/EmployeeContainer";
 
 function App() {
-  return <div className="App"></div>;
+  return <EmployeeContainer />;
 }
 
 export default App;
