@@ -7,7 +7,8 @@ export default function SearchForm(props) {
         <div className="form-group">
           <label htmlFor="search">Search:</label>
           <input
-            onChange={props.handleInputChange}
+            onChange={props.filterEmployees}
+            onClick={props.handleChange}
             value={props.value}
             name="search"
             type="text"
@@ -16,7 +17,7 @@ export default function SearchForm(props) {
             id="search"
           />
           <button onClick={props.handleFormSubmit} className="btn">
-            Search
+            Sort Age
           </button>
         </div>
       </form>

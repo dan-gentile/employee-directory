@@ -6,8 +6,11 @@ import API from "../utils/API";
 export default class EmployeeContainer extends Component {
   state = {
     result: {},
+    filteredEmployees: {},
+    sortedEmployees: {},
     search: "",
   };
+
   componentDidMount() {
     this.addEmployees();
   }
@@ -18,17 +21,29 @@ export default class EmployeeContainer extends Component {
       .catch((err) => console.log(err));
   };
 
-  handleInputChange = (event) => {
-    const { name, value } = event.target;
-
-    this.setState({
-      [name]: value,
-    });
+  handleChange = (event) => {
+    this.setState({ filteredEmployees: this.state.result });
   };
 
-  handleFormSubmit = (event) => {
+  filterEmployees = (event) => {
+    const { name, value } = event.target;
+    const filteredEmployees = this.state.result.filter((result) => {
+      return (
+        result.name.first
+          .toLowerCase()
+          .search(event.target.value.toLowerCase()) !== -1
+      );
+    });
+    this.setState({ filteredEmployees: filteredEmployees, [name]: value });
+  };
+
+  handleSubmit = (event) => {
     event.preventDefault();
-    this.searchMovies(this.state.search);
+  };
+
+  renderArray = (state) => {
+    if (!state.result[0]) return null;
+    if(state.result[0]) 
   };
 
   render() {
@@ -54,8 +69,8 @@ export default class EmployeeContainer extends Component {
 
         <SearchForm
           value={this.state.search}
-          handleInputChange={this.handleInputChange}
-          handleFormSubmit={this.handleFormSubmit}
+          handleChange={this.handleChange}
+          filterEmployees={this.filterEmployees}
         />
       </>
     );
