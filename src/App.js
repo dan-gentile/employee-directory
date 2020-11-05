@@ -1,9 +1,16 @@
 import React from "react";
-import "./app.css";
 import EmployeeContainer from "./components/EmployeeContainer";
+import "./app.css";
 
 function App() {
-  return <EmployeeContainer />;
+  return (
+    <main>
+      <header>
+        <h3>Employee Directory</h3>
+      </header>
+      <EmployeeContainer />
+    </main>
+  );
 }
 
 export default App;
