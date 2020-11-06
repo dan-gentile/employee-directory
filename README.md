@@ -20,7 +20,10 @@
 
 ### General info
 
-Web Link: <>
+This app allows a user to be able to view my entire employee directory at once so that I have quick access to their information. Search by Name and sort by age, cause why not!
+This app is built using React, seed employees are pull from the randomuser.me API using axios.
+
+Web Link: <https://reactdirectory2105.herokuapp.com/>
 ​
 
 ### Technologies
@@ -28,13 +31,14 @@ Web Link: <>
 Project is created with:
 
 - [React JS](https://reactjs.org/)
+- [axios](https://www.npmjs.com/package/axios)
 
 ### Deployment
 
 If running locally on your machine, make sure you have Node.js installed on your machine. As well as Mongo installed and copy the schema file in the root folder to build your database. In the root folder while in your terminal run `npm start` the application should be available on your browser at localhost:3000.
 
 If running from browser just go to the link
-<>
+<https://reactdirectory2105.herokuapp.com/>
 
 ### Screen shots
 
