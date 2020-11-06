@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import EmployeeCard from "../components/EmployeeCard";
-import SearchForm from "../components/SearchForm";
-import API from "../utils/API";
+import EmployeeCard from "../../components/EmployeeCard/EmployeeCard";
+import SearchForm from "../../components/SearchForm/SearchForm";
+import API from "../../utils/API";
+import "./employeecontainer.css";
 
 export default class EmployeeContainer extends Component {
   state = {

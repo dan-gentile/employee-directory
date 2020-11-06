@@ -1,4 +1,5 @@
 import React from "react";
+import "./employeecard.css";
 
 export default function EmployeeCard(props) {
   return (
