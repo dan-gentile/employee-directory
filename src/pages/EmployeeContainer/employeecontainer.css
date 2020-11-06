@@ -7,3 +7,9 @@
   flex-direction: column;
   align-items: center;
 }
+
+@media only screen and (max-width: 600px) {
+  .employee-card-div {
+    grid-column-start: 1;
+  }
+}

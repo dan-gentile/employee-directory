@@ -1,6 +1,6 @@
 main {
   display: grid;
-  grid-template-columns: 1fr minmax(360px, 1fr) 1fr;
+  grid-template-columns: 1fr minmax(580px, 1fr) 1fr;
   grid-template-rows: 25vh 75px 1fr;
   height: 100vh;
   font-family: acumin-pro, sans-serif;
@@ -24,4 +24,15 @@ header h3 {
   font-size: 2rem;
   font-weight: 700;
   color: #fafafa;
+}
+
+@media only screen and (max-width: 600px) {
+  main {
+    grid-template-columns: minmax(320px, 1fr);
+    grid-template-rows: 25vh 150px 1fr;
+  }
+
+  header {
+    grid-column-end: span 1;
+  }
 }

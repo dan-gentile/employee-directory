@@ -37,3 +37,10 @@ label {
   height: 20px;
   width: 20px;
 }
+
+@media only screen and (max-width: 600px) {
+  .search-form {
+    grid-column-end: span 1;
+    flex-direction: column;
+  }
+}

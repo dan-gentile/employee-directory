@@ -18,3 +18,12 @@
 img {
   border-radius: 50%;
 }
+
+@media only screen and (max-width: 600px) {
+  .employee-card {
+    font-size: 13px;
+  }
+  .image {
+    margin: 0 5px;
+  }
+}
