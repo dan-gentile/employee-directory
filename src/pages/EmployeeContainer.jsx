@@ -1,13 +1,12 @@
 import React, { Component } from "react";
-import EmployeeCard from "./EmployeeCard";
-import SearchForm from "./SearchForm";
+import EmployeeCard from "../components/EmployeeCard";
+import SearchForm from "../components/SearchForm";
 import API from "../utils/API";
 
 export default class EmployeeContainer extends Component {
   state = {
     result: {},
-    filteredEmployees: {},
-    sortedEmployees: {},
+    initialResult: {},
     search: "",
   };
 
@@ -17,34 +16,41 @@ export default class EmployeeContainer extends Component {
 
   addEmployees = () => {
     API.search()
-      .then((res) => this.setState({ result: res.data.results, search: "" }))
+      .then((res) =>
+        this.setState({
+          result: res.data.results,
+          initialResult: res.data.results,
+        })
+      )
       .catch((err) => console.log(err));
-  };
-
-  handleChange = (event) => {
-    this.setState({ filteredEmployees: this.state.result });
   };
 
   filterEmployees = (event) => {
     const { name, value } = event.target;
-    const filteredEmployees = this.state.result.filter((result) => {
-      return (
-        result.name.first
-          .toLowerCase()
-          .search(event.target.value.toLowerCase()) !== -1
-      );
-    });
-    this.setState({ filteredEmployees: filteredEmployees, [name]: value });
+    if (event.target.value) {
+      const filteredEmployees = this.state.result.filter((result) => {
+        return (
+          result.name.first
+            .toLowerCase()
+            .search(event.target.value.toLowerCase()) !== -1
+        );
+      });
+      this.setState({ result: filteredEmployees, search: event.target.value });
+    } else {
+      this.setState({ result: this.state.initialResult, search: "" });
+    }
   };
 
-  handleSubmit = (event) => {
-    event.preventDefault();
+  sortEmployees = () => {
+    const sortedEmployees = this.state.result.sort((a, b) =>
+      a.dob.age > b.dob.age ? 1 : b.dob.age > a.dob.age ? -1 : 0
+    );
+    this.setState({ sortedEmployees: sortedEmployees });
   };
 
-  renderArray = (state) => {
-    if (!state.result[0]) return null;
-    if(state.result[0]) 
-  };
+  // handleSubmit = (event) => {
+  //   event.preventDefault();
+  // };
 
   render() {
     return (
@@ -69,7 +75,6 @@ export default class EmployeeContainer extends Component {
 
         <SearchForm
           value={this.state.search}
-          handleChange={this.handleChange}
           filterEmployees={this.filterEmployees}
         />
       </>

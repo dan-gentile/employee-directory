@@ -4,7 +4,7 @@ export default function EmployeeCard(props) {
   return (
     <div className="employee-card">
       <div className="image">
-        <img src={props.picture} />
+        <img src={props.picture} alt={(props.firstName, props.lastName)} />
       </div>
       <div className="details">
         <ul>

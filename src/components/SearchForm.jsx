@@ -8,7 +8,6 @@ export default function SearchForm(props) {
           <label htmlFor="search">Search:</label>
           <input
             onChange={props.filterEmployees}
-            onClick={props.handleChange}
             value={props.value}
             name="search"
             type="text"
@@ -16,9 +15,6 @@ export default function SearchForm(props) {
             placeholder="Search for employee"
             id="search"
           />
-          <button onClick={props.handleFormSubmit} className="btn">
-            Sort Age
-          </button>
         </div>
       </form>
     </div>
