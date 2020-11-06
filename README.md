@@ -79,4 +79,4 @@ If you have any questions please create an issue.
 
 ## License
 
-This license is [MIT](https://github.com/dan-gentile/employee-directory/blob/b24d162c451ed3b3b8b2d060e9066275d1f4f21d/LICENSE)
+This license is MIT
