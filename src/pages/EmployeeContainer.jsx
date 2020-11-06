@@ -8,6 +8,7 @@ export default class EmployeeContainer extends Component {
     result: {},
     initialResult: {},
     search: "",
+    isChecked: false,
   };
 
   componentDidMount() {
@@ -35,22 +36,30 @@ export default class EmployeeContainer extends Component {
             .search(event.target.value.toLowerCase()) !== -1
         );
       });
-      this.setState({ result: filteredEmployees, search: event.target.value });
+      this.setState({ result: filteredEmployees, [name]: value });
     } else {
-      this.setState({ result: this.state.initialResult, search: "" });
+      this.setState({ result: this.state.initialResult, [name]: "" });
     }
   };
 
-  sortEmployees = () => {
-    const sortedEmployees = this.state.result.sort((a, b) =>
-      a.dob.age > b.dob.age ? 1 : b.dob.age > a.dob.age ? -1 : 0
-    );
-    this.setState({ sortedEmployees: sortedEmployees });
+  sortEmployees = (event) => {
+    if (this.state.isChecked === false) {
+      const sortedEmployees = this.state.result.slice(0).sort((a, b) => {
+        return a.dob.age - b.dob.age;
+      });
+      this.setState({ result: sortedEmployees });
+    } else {
+      this.setState({ result: this.state.initialResult });
+    }
   };
 
-  // handleSubmit = (event) => {
-  //   event.preventDefault();
-  // };
+  handleChange = (event) => {
+    if (event.target.checked === true) {
+      this.setState({ isChecked: true });
+    } else {
+      this.setState({ isChecked: false });
+    }
+  };
 
   render() {
     return (
@@ -76,6 +85,9 @@ export default class EmployeeContainer extends Component {
         <SearchForm
           value={this.state.search}
           filterEmployees={this.filterEmployees}
+          isChecked={this.state.isChecked}
+          handleChange={this.handleChange}
+          sortEmployees={this.sortEmployees}
         />
       </>
     );

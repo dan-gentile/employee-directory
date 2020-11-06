@@ -38,7 +38,7 @@ header h3 {
   align-items: center;
 }
 
-input {
+.input-field {
   height: 30px;
   width: 220px;
   margin: 10px 20px;
@@ -46,26 +46,6 @@ input {
   border-radius: 4px;
   box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.2);
   text-align: center;
-}
-
-.btn {
-  height: 30px;
-  width: 80px;
-  border-style: none;
-  border-radius: 4px;
-  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.2);
-  background-color: #f7f7fa;
-  color: #081226;
-}
-
-.btn:hover {
-  background-color: #081226;
-  color: #fafafa;
-}
-
-.btn:focus {
-  background-color: #bf5841;
-  color: #081226;
 }
 
 .employee-card-div {

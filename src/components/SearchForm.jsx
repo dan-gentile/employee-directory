@@ -11,9 +11,20 @@ export default function SearchForm(props) {
             value={props.value}
             name="search"
             type="text"
-            className="form-control"
+            className="input-field"
             placeholder="Search for employee"
             id="search"
+          />
+        </div>
+        <div>
+          <label htmlFor="sort">Sort by Age</label>
+          <input
+            onChange={props.sortEmployees}
+            onClick={props.handleChange}
+            checked={props.isChecked}
+            name="sort"
+            type="checkbox"
+            id="sort"
           />
         </div>
       </form>
