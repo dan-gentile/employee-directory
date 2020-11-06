@@ -4,7 +4,7 @@
 
 ![Contents](https://img.shields.io/github/languages/top/dan-gentile/employee-directory)
 ![Last-Commit](https://img.shields.io/github/last-commit/dan-gentile/employee-directory)
-![License](https://img.shields.io/github/license/dan-gentile/employee-directory)
+
 ​
 
 ### Table of contents
